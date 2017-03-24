@@ -1,33 +1,36 @@
-const users = require('./users/users.service.js');
-const rating = require('./rating/rating.service.js');
-const antidote = require('./antidote/antidote.service.js');
-const department = require('./department/department.service.js');
-const entity = require('./entity/entity.service.js');
-const group = require('./group/group.service.js');
-const location = require('./location/location.service.js');
-const scheme = require('./scheme/scheme.service.js');
-const sector = require('./sector/sector.service.js');
-const story = require('./story/story.service.js');
+'use strict';
+const authManagement = require('./authManagement');
+const emails = require('./emails');
+const messages = require('./messages');
+const entity = require('./entity');
+const group = require('./group');
+const department = require('./department');
+const sector = require('./sector');
+const location = require('./location');
+const stories = require('./stories');
+const antidotes = require('./antidotes');
+const schemes = require('./schemes');
+const authentication = require('./authentication');
+const user = require('./user');
+const mongoose = require('mongoose');
+module.exports = function() {
+  const app = this;
 
-const email = require('./email/email.service.js');
+  mongoose.connect(app.get('mongodb'));
+  mongoose.Promise = global.Promise;
 
-const effect = require('./effect/effect.service.js');
-
-const request = require('./request/request.service.js');
-
-module.exports = function () {
-  const app = this; // eslint-disable-line no-unused-vars
-  app.configure(users);
-  app.configure(rating);
-  app.configure(antidote);
-  app.configure(department);
-  app.configure(entity);
-  app.configure(group);
+  app.configure(authentication);
+  app.configure(user);
+  app.configure(schemes);
+  app.configure(antidotes);
+  app.configure(stories);
   app.configure(location);
-  app.configure(scheme);
   app.configure(sector);
-  app.configure(story);
-  app.configure(email);
-  app.configure(effect);
-  app.configure(request);
+  app.configure(department);
+  app.configure(group);
+  app.configure(entity);
+  app.configure(messages);
+  app.configure(emails);
+  app.configure(authManagement);
+  app.configure(authManagement);
 };

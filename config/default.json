@@ -1,76 +1,35 @@
 {
   "host": "localhost",
   "port": 3030,
+  "mongodb": "mongodb://localhost:27017/tameApi",
+  "src": "../src/",
+  "complaint_email":"complaints.getintelli.com",
   "public": "../public/",
-  "paginate": {
-    "default": 10,
-    "max": 50
-  },
-  "approvalEmails":[
-      "123@456.com",
-      "333@abc.io"
-    ],
-     "src": "../src/",
-  "authentication": {
-    "secret": "a9e0ab7ef19417c74f3df38cf73be56ffcd0e90dd9b0750adaa378eacac404c488d90b98bb3f86be75213780b7e09cde5ff1fbb40239d0aff8e550343a572b435130b3e624dcdd035672d6ebd73584433a88fc3954c168dc342a4b4c4dc7f96eac578740b1a8e3a906dd25632342438d907d982a15f8d248e298fa366c6b18ca1e639d98580610022b3e9ba139d577b9dafb97af9ae4cadbe7bca855d22301fcf83e9363f4728335c364a88d361fbbf1c6bab5002b1f42136be3bcde882cde492a999c2d7cd3fac321d90612b62ab9f6aaa953429a1e5436feb6315612888e63333241f211ae4a2ceca4bac1dfe00345ceae5c2f0c5e69002170cc01857c1bd7",
-    "strategies": [
-      "jwt",
-      "local"
-    ],
-    "path": "/authentication",
-    "service": "users",
-    "jwt": {
-      "header": {
-        "type": "access"
-      },
-      "audience": "https://yourdomain.com",
-      "subject": "anonymous",
-      "issuer": "feathers",
-      "algorithm": "HS256",
-      "expiresIn": "1d"
+  "auth": {
+    "token": {
+      "secret": "diA+ApOJzo4+QgsBVnpt7BiYBqqPX5RasiU9lvmmMfqjdezKJM03Xi8xreceeHTetGKMSji6ajbm09RAFvX6PQ=="
     },
-    "local": {
-      "entity": "user",
-      "service": "users",
-      "usernameField": "email",
-      "passwordField": "password"
+    "local": {},
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "permissions": {
+        "scope": ["public_profile","email"]
+      }
     },
     "google": {
       "clientID": "your google client id",
       "clientSecret": "your google client secret",
-      "successRedirect": "/",
-      "scope": [
-        "profile openid email"
-      ]
+      "permissions": {
+        "scope": ["profile"]
+      }
     },
-    "facebook": {
-      "clientID": "facebook_id",
-      "clientSecret": "facebook_secret",
-      "successRedirect": "/",
-      "scope": [
-        "public_profile",
-        "email"
-      ],
-      "profileFields": [
-        "id",
-        "displayName",
-        "first_name",
-        "last_name",
-        "email",
-        "gender",
-        "profileUrl",
-        "birthday",
-        "picture",
-        "permissions"
-      ]
-    },
-    
-    "cookie": {
-      "enabled": true,
-      "name": "feathers-jwt",
-      "httpOnly": false,
-      "secure": false
+    "linkedin": {
+      "clientID": "your linkedin client id",
+      "clientSecret": "your linkedin client secret",
+      "permissions": {
+        "scope": ["r_emailaddress","r_basicprofile"]
+      }
     }
-  },
-  "mongodb": "mongodb_url"
+  }
 }
