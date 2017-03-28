@@ -9,11 +9,15 @@ module.exports = function(app) {
 
   function getLink(type, hash) {
     var url
-    var port = (app.get('port') === '80' || isProd)? '': ':' + app.get('port')
+    var port = (app.get('client_port') === '80' || isProd)? '': ':' + app.get('client_port')
     var host = (app.get('host') === 'HOST')? 'localhost': app.get('host')
     var protocal = (app.get('protocal') === 'PROTOCAL')? 'http': app.get('protocal')
+    console.log('show',protocal);
     protocal += "://"
-    return `${protocal}${host}${port}/login/${type}/${hash}`
+    console.log('spell',protocal);
+    var accessLink =  `http://${host}${port}/#!/login/${type}?token=${hash}`
+    console.log('showing link sent to user', accessLink )
+    return accessLink
   }
 
   function sendEmail(email) {

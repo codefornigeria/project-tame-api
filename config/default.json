@@ -1,10 +1,11 @@
 {
   "host": "localhost",
   "port": 3030,
+  "client_port":4930,
   "mongodb": "mongodb://localhost:27017/tameApi",
   "src": "../src/",
   "complaint_email":"complaints.getintelli.com",
-  "public": "../public/",
+    "public": "../public/",
   "auth": {
     "token": {
       "secret": "diA+ApOJzo4+QgsBVnpt7BiYBqqPX5RasiU9lvmmMfqjdezKJM03Xi8xreceeHTetGKMSji6ajbm09RAFvX6PQ=="

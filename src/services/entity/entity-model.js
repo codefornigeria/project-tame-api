@@ -10,9 +10,11 @@ const Schema = mongoose.Schema;
 
 const entitySchema = new Schema({
   name: { type: String, required: true },
-  size: { type: String, required: true },
-  address: { type: String, required: true },
+  size: { type: String },
+  address: { type: String },
+  city:{type:String},
   state: { type: String, required: true },
+  zone:{type:String},
   domains:[{type: String}],
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
