@@ -12,6 +12,7 @@ const antidotesSchema = new Schema({
   name: { type: String, required: true },
   description:{type:'String'},
   schemes:{type: Schema.Types.ObjectId , ref:'schemes'},
+  score: {type: Number , required:true},
   location:{type: Schema.Types.ObjectId , ref:'location'},
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }

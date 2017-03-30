@@ -7,6 +7,7 @@ const hooks = require('feathers-hooks');
 const findByDomain = options => {
   console.log('showing optios', options)
   return hook =>{
+    
     console.log('showing hooks' ,hook.params.query  )
     hook.params.query.domains = hook.params.query.domains.split('@')[1]
       console.log('showing hooks' ,hook.params.query  )
