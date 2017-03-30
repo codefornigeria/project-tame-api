@@ -1,4 +1,5 @@
 'use strict';
+const rating = require('./rating');
 const authManagement = require('./authManagement');
 const emails = require('./emails');
 const messages = require('./messages');
@@ -33,4 +34,5 @@ module.exports = function() {
   app.configure(emails);
   app.configure(authManagement);
   app.configure(authManagement);
+  app.configure(rating);
 };
