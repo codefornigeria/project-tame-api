@@ -15,7 +15,7 @@ module.exports = function(app) {
     console.log('show',protocal);
     protocal += "://"
     console.log('spell',protocal);
-    var accessLink =  `http://tame-app.herokuapp.com/#!/login/${type}?token=${hash}`
+    var accessLink =  `http://tame-app.herokuapp.com/#!/${type}?token=${hash}`
     console.log('showing link sent to user', accessLink )
     return accessLink
   }
