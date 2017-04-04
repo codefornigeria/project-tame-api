@@ -2,7 +2,7 @@
   "host": "localhost",
   "port": 3030,
   "client_port":4930,
-  "mongodb": "mongodb://localhost:27017/tameApi",
+  "mongodb": "mongodb://heroku_3vzxbh8p:kovd3bqap33fgi4pkt3sfkrtr6@ds161049.mlab.com:61049/heroku_3vzxbh8p",
   "src": "../src/",
   "complaint_email":"complaints.getintelli.com",
     "public": "../public/",

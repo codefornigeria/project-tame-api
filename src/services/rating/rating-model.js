@@ -10,11 +10,10 @@ const Schema = mongoose.Schema;
 
 const ratingSchema = new Schema({
   entity:{type: Schema.Types.ObjectId , ref:'entity'},
-  scheme:{type: Schema.Types.ObjectId , ref:'scheme'},
+  schemes:[{type: Schema.Types.ObjectId , ref:'scheme'}],
   score:{type : Number , default :0},
   ratingData:{},
   ratingType:{type:String , default:'self-assessor'},
-  text: { type: String, required: true },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
