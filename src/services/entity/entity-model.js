@@ -16,8 +16,11 @@ const entitySchema = new Schema({
   state: { type: String, required: true },
   zone:{type:String},
   domains:[{type: String}],
+  isSelfRated:{ type: Boolean , 'default':false },
+  indieRated:{ type: Boolean, 'default':false},
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
+
 });
 
 const entityModel = mongoose.model('entity', entitySchema);

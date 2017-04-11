@@ -34,13 +34,13 @@ const processRating = options => {
 }
 exports.before = {
   all: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated()
+
   ],
   find: [],
   get: [],
-  create: [processRating()],
+  create: [auth.verifyToken(),
+  auth.populateUser(),
+  auth.restrictToAuthenticated(),processRating()],
   update: [],
   patch: [],
   remove: []
