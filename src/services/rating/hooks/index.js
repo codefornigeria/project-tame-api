@@ -33,9 +33,7 @@ const processRating = options => {
   }
 }
 exports.before = {
-  all: [
-
-  ],
+  all: [],
   find: [],
   get: [],
   create: [auth.verifyToken(),
