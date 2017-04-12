@@ -40,7 +40,7 @@ const  transformIds  = options =>{
         return mongoose.Types.ObjectId(id)
       })
       console.log('showing id',_id)
-      hook.params.query._id = _id[0]
+      hook.params.query._id = _id
   console.log('shoiwng   hook ', hook.params.query )
         Promise.resolve(hook)
     }else{
@@ -51,7 +51,7 @@ const  transformIds  = options =>{
   }
 }
 exports.before = {
-  all: [transformIds()],
+  all: [],
   find: [],
   get: [],
   create: [auth.verifyToken(),
