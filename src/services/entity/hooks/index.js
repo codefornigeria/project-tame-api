@@ -21,7 +21,7 @@ const  transformIds  = options =>{
         return mongoose.Types.ObjectId(id)
       })
     }
-  console.log('shoiwng changed hook ', hook )
+  console.log('shoiwng changed hook ', hook.params.query )
     Promise.resolve(hook)
   }
 }
