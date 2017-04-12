@@ -22,7 +22,7 @@ const entitySchema = new Schema({
   updatedAt: { type: Date, 'default': Date.now }
 
 });
-
+entitySchema.index({name: 'text'})
 const entityModel = mongoose.model('entity', entitySchema);
 
 module.exports = entityModel;
