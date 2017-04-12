@@ -8,9 +8,11 @@ const findByDomain = options => {
   console.log('showing optio', options)
   return hook =>{
 
-    console.log('showing hooks' ,hook.params.query  )
+  if(hook.params.query.domains){
+
     hook.params.query.domains = hook.params.query.domains.split('@')[1]
-      console.log('showing hooks' ,hook.params.query  )
+    
+  }
     Promise.resolve(hook)
   }
 }
