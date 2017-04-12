@@ -5,12 +5,12 @@ const hooks = require('feathers-hooks');
 
 
 const findByDomain = options => {
-  console.log('showing optios', options)
+  console.log('showing optio', options)
   return hook =>{
-    
-    console.log('showing hooks' ,hook.params.query  )
-    hook.params.query.domains = hook.params.query.domains.split('@')[1]
-      console.log('showing hooks' ,hook.params.query  )
+
+    // console.log('showing hooks' ,hook.params.query  )
+    // hook.params.query.domains = hook.params.query.domains.split('@')[1]
+    //   console.log('showing hooks' ,hook.params.query  )
     Promise.resolve(hook)
   }
 }
