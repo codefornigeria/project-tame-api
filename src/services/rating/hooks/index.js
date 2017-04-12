@@ -32,8 +32,20 @@ const processRating = options => {
     Promise.resolve(hook)
   }
 }
+const mongoose = require('mongoose')
+const  transformIds  = options =>{
+  return hook =>{
+    if(Array.isArray(hook.params.query._ids)){
+      hook.params.query._ids.map(function (id){
+        return mongoose.Types.ObjectId(id)
+      })
+    }
+  console.log('shoiwng changed hook ', hook.params.query )
+    Promise.resolve(hook)
+  }
+}
 exports.before = {
-  all: [],
+  all: [transformIds()],
   find: [],
   get: [],
   create: [auth.verifyToken(),
