@@ -40,8 +40,8 @@ const  transformIds  = options =>{
         return mongoose.Types.ObjectId(id)
       })
       console.log('showing id',_id)
-      hook.params.query._id = _id
-
+      hook.params.query._id = _id[0]
+  console.log('shoiwng   hook ', hook.params.query )
         Promise.resolve(hook)
     }else{
       console.log('shoiwng   hook ', hook.params.query )
