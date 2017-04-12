@@ -8,12 +8,13 @@ const findByDomain = options => {
   console.log('showing optio', options)
   return hook =>{
 
-    // console.log('showing hooks' ,hook.params.query  )
-    // hook.params.query.domains = hook.params.query.domains.split('@')[1]
-    //   console.log('showing hooks' ,hook.params.query  )
+    console.log('showing hooks' ,hook.params.query  )
+    hook.params.query.domains = hook.params.query.domains.split('@')[1]
+      console.log('showing hooks' ,hook.params.query  )
     Promise.resolve(hook)
   }
 }
+
 const  transformIds  = options =>{
   return hook =>{
     if(Array.isArray(hook.params.query._ids)){
@@ -25,7 +26,6 @@ const  transformIds  = options =>{
     Promise.resolve(hook)
   }
 }
-
 exports.before = {
   all: [],
   find: [transformIds(),findByDomain()],
