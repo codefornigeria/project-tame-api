@@ -36,11 +36,13 @@ const mongoose = require('mongoose')
 const  transformIds  = options =>{
   return hook =>{
     if(Array.isArray(hook.params.query._id)){
-     var changedHook  =   hook.params.query._id.map(function (id){
+     var _id  =   hook.params.query._id.map(function (id){
         return mongoose.Types.ObjectId(id)
       })
-      console.log('shoiwng changed hook ', changedHook.params.query )
-        Promise.resolve(changedHook)
+      console.log('showing id',_id)
+      hook.params.query._id = _id
+
+        Promise.resolve(hook)
     }else{
       console.log('shoiwng   hook ', hook.params.query )
         Promise.resolve(hook)
