@@ -5,12 +5,12 @@
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "FEATHERS_AUTH_SECRET"
+      "secret": "diA+ApOJzo4+QgsBVnpt7BiYBqqPX5RasiU9lvmmMfqjdezKJM03Xi8xreceeHTetGKMSji6ajbm09RAFvX6PQ=="
     },
     "local": {},
     "facebook": {
-      "clientID": "your facebook client id",
-      "clientSecret": "your facebook client secret",
+      "clientID": "643775069155130",
+      "clientSecret": "de938e6d2a3ab7f30d7bee1d9ff7bc3b",
       "permissions": {
         "scope": ["public_profile","email"]
       }
