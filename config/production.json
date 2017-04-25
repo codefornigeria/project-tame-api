@@ -14,7 +14,7 @@
       "permissions": {
         "scope": ["public_profile","email"]
       }
-    },
+    },a
     "google": {
       "clientID": "your google client id",
       "clientSecret": "your google client secret",

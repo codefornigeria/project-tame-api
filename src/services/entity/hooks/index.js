@@ -7,11 +7,10 @@ const mongoose = require('mongoose')
 const findByDomain = options => {
   console.log('showing optio', options)
   return hook =>{
-
-  if(hook.params.query.domains){
-
-    hook.params.query.domains = hook.params.query.domains.split('@')[1]
-    
+  switch(hook.params.userType){
+    case 'self-assessor':
+      hook.params.query.domains = hook.params.query.domains.split('@')[1]
+    break;
   }
     Promise.resolve(hook)
   }
