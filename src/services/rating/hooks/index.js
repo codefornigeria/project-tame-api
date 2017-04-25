@@ -35,14 +35,13 @@ const processRating = options => {
 const processRatingEntity = options =>{
    return hook =>{
       // this function process a rating based on rating type and update the entity involved in the rating process
-      console.log('showing hook result', hook.params)
-     let entityService = hook.app.service('entities')
+       let entityService = hook.app.service('entities')
         var patchData ={}
-        if(hooks.params.user.userType == 'self-assessor'){
+        if(hook.params.user.userType == 'self-assessor'){
           patchData.isSelfRated =true
         }
 
-        if(hooks.params.user.userType == 'independent-assessor'){
+        if(hook.params.user.userType == 'independent-assessor'){
           patchData.indieRated =true
         }
 
