@@ -32,6 +32,27 @@ const processRating = options => {
     Promise.resolve(hook)
   }
 }
+const processRatingEntity = options =>{
+   return hook =>{
+      // this function process a rating based on rating type and update the entity involved in the rating process
+      console.log('showing hook result', hook.result.entity)
+     let entityService = hook.app.service('entities')
+        var patchData ={}
+        if(hooks.params.user.userType == 'self-assessor'){
+          patchData.isSelfRated =true
+        }
+
+        if(hooks.params.user.userType == 'independent-assessor'){
+          patchData.indieRated =true
+        }
+
+        entity.service.patch(hook.result.entity , patchData).then(function(entity){
+          Promise.resolve(hook)
+        }).catch(function(err){
+          Promise.resolve(hook)
+        })
+   }
+}
 const mongoose = require('mongoose')
 const  transformIds  = options =>{
   return hook =>{
@@ -66,7 +87,7 @@ exports.after = {
   all: [],
   find: [],
   get: [],
-  create: [],
+  create: [processRatingEntity()],
   update: [],
   patch: [],
   remove: []
