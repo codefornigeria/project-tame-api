@@ -44,8 +44,8 @@ const processRatingEntity = options =>{
         if(hook.params.user.userType == 'independent-assessor'){
           patchData.indieRated =true
         }
-
-        entity.service.patch(hook.result.entity , patchData).then(function(entity){
+        console.log('result' , hook.result)
+        entityService.patch(hook.result.entity , patchData).then(function(entity){
           Promise.resolve(hook)
         }).catch(function(err){
           Promise.resolve(hook)
