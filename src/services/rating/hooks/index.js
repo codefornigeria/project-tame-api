@@ -35,7 +35,7 @@ const processRating = options => {
 const processRatingEntity = options =>{
    return hook =>{
       // this function process a rating based on rating type and update the entity involved in the rating process
-      console.log('showing hook result', hook.result.entity)
+      console.log('showing hook result', hook.params)
      let entityService = hook.app.service('entities')
         var patchData ={}
         if(hooks.params.user.userType == 'self-assessor'){
