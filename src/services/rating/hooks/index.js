@@ -21,7 +21,7 @@ const processRating = options => {
   hook.data.ratingData.map(function(scheme){
     //  delete scheme.$$hashKey
 
-        finalScore = finalScore+ antidote.score
+        finalScore = finalScore+ scheme.score
         scoreLength++
       })
   try{
