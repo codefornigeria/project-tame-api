@@ -16,14 +16,13 @@ const processRating = options => {
         finalData.schemes.push(scheme._id)
 
     })
-  
+
   hook.data.ratingData.map(function(scheme){
     //  delete scheme.$$hashKey
 
         finalScore = finalScore+ antidote.score
         scoreLength++
       })
-  })
   try{
   finalData.score = finalScore/scoreLength
 }catch(e){
