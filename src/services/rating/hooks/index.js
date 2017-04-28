@@ -5,7 +5,7 @@ const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 const _ = require('lodash')
 const processRating = options => {
-  console.log('showing optios', options)
+  console.log('showing optios', hook.data)
   return hook =>{
     var finalScore =0;
     var scoreLength =0;
