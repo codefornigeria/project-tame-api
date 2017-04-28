@@ -14,6 +14,7 @@ const sectorSchema = new Schema({
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
+sectorSchema.index({name: 'text'})
 
 const sectorModel = mongoose.model('sector', sectorSchema);
 

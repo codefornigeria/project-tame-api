@@ -64,7 +64,7 @@ const  transformIds  = options =>{
   console.log('shoiwng   hook ', hook.params.query )
         Promise.resolve(hook)
     }else{
-      console.log('shoiwng   hook ', hook.params.query )
+      console.log('showing, hook ', hook.params.query )
         Promise.resolve(hook)
     }
 
