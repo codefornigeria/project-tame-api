@@ -12,6 +12,7 @@ module.exports = function (app) {
   state: { type: String, required: true },
   zone:{type:String},
   domains:[{type: String}],
+  sectors : [{type: mongooseClient.Schema.Types.ObjectId , ref:'sector'}],
   isSelfRated:{ type: Boolean , 'default':false },
   indieRated:{ type: Boolean, 'default':false},
   createdAt: { type: Date, 'default': Date.now },

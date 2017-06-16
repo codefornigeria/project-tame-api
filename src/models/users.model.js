@@ -12,7 +12,7 @@ module.exports = function (app) {
    lastname: { type: String },
     phone: { type: String },
     googleId: { type: String },
-  
+    userType:{type: String},
     facebookId: { type: String },
   isVerified: { type: Boolean },
   verifyToken: { type: String },
