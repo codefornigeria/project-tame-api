@@ -14,7 +14,7 @@ module.exports = function () {
   // Set up authentication with the secret
   app.configure(authentication(config));
   app.configure(authManagement({
-    notifier:authNotifier
+    notifier:authNotifier(app)
   }))
   app.configure(jwt());
   app.configure(local(config.local));

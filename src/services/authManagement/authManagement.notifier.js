@@ -3,20 +3,21 @@ const path = require('path')
 const returnEmail = process.env.COMPLAINT_EMAIL
 const jade = require('jade')
 
-module.exports = function(app) {
+module.exports = function (app) {
+  console.log('the app', app)
   console.log('showing notifier app value', app.get('src'))
   const returnEmail = app.get('complaint_email') || process.env.COMPLAINT_EMAIL
 
   function getLink(type, hash) {
     var url
-    var port = (app.get('client_port') === '80' || isProd)? '': ':' + app.get('client_port')
-    var host = (app.get('host') === 'HOST')? 'localhost': app.get('host')
-    var protocal = (app.get('protocal') === 'PROTOCAL')? 'http': app.get('protocal')
-    console.log('show',protocal);
+    var port = (app.get('client_port') === '80' || isProd) ? '' : ':' + app.get('client_port')
+    var host = (app.get('host') === 'HOST') ? 'localhost' : app.get('host')
+    var protocal = (app.get('protocal') === 'PROTOCAL') ? 'http' : app.get('protocal')
+    console.log('show', protocal);
     protocal += "://"
-    console.log('spell',protocal);
-    var accessLink =  `http://tame-app.herokuapp.com/#!/${type}?token=${hash}`
-    console.log('showing link sent to user', accessLink )
+    console.log('spell', protocal);
+    var accessLink = `http://tame-app.herokuapp.com/#!/${type}?token=${hash}`
+    console.log('showing link sent to user', accessLink)
     return accessLink
   }
 
@@ -28,155 +29,153 @@ module.exports = function(app) {
     })
   }
 
-  return {
-    notifier: function(type, user, notifierOptions) {
-      console.log(`-- Preparing email for ${type}`)
+  return function (type, user, notifierOptions) {
+    console.log(`-- Preparing email for ${type}`)
 
-      var hashLink
-      var email
-      console.log('src path', app.get('src'))
-      var emailAccountTemplatesPath = path.join(app.get('src'), 'email-templates', 'account')
+    var hashLink
+    var email
+    console.log('src path', app.get('src'))
+    var emailAccountTemplatesPath = path.join(app.get('src'), 'email-templates', 'account')
 
-      var templatePath
-      var compiledHTML
-      switch (type) {
-        case 'resendVerifySignup': // send another email with link for verifying user's email addr
+    var templatePath
+    var compiledHTML
+    switch (type) {
+      case 'resendVerifySignup': // send another email with link for verifying user's email addr
 
-          hashLink = getLink('verify', user.verifyToken)
+        hashLink = getLink('verify', user.verifyToken)
 
-          templatePath = path.join(emailAccountTemplatesPath, 'verify-email.jade')
+        templatePath = path.join(emailAccountTemplatesPath, 'verify-email.jade')
 
-          compiledHTML = jade.compileFile(templatePath)({
-            logo: '',
-            name: user.name || user.email,
-            hashLink,
-            returnEmail
-          })
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          hashLink,
+          returnEmail
+        })
 
-          email = {
-             from: 'hello@getintelli.com',
-             to: user.email,
-             subject: 'Confirm Signup',
-             html: compiledHTML
-          }
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.email,
+          subject: 'Confirm Signup',
+          html: compiledHTML
+        }
 
-          return sendEmail(email)
+        return sendEmail(email)
 
-          break
-        case 'verifySignup': // inform that user's email is now confirmed
+        break
+      case 'verifySignup': // inform that user's email is now confirmed
 
-          hashLink = getLink('verify', user.verifyToken)
+        hashLink = getLink('verify', user.verifyToken)
 
-          templatePath = path.join(emailAccountTemplatesPath, 'email-verified.jade')
+        templatePath = path.join(emailAccountTemplatesPath, 'email-verified.jade')
 
-          compiledHTML = jade.compileFile(templatePath)({
-            logo: '',
-            name: user.name || user.email,
-            hashLink,
-            returnEmail
-          })
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          hashLink,
+          returnEmail
+        })
 
-          email = {
-            from: 'hello@getintelli.com',
-             to: user.email,
-             subject: 'Thank you, your email has been verified',
-             html: compiledHTML
-          }
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.email,
+          subject: 'Thank you, your email has been verified',
+          html: compiledHTML
+        }
 
-          return sendEmail(email)
+        return sendEmail(email)
 
-          break
-        case 'sendResetPwd': // inform that user's email is now confirmed
+        break
+      case 'sendResetPwd': // inform that user's email is now confirmed
 
-          hashLink = getLink('reset', user.resetToken)
+        hashLink = getLink('reset', user.resetToken)
 
-          templatePath = path.join(emailAccountTemplatesPath, 'reset-password.jade')
+        templatePath = path.join(emailAccountTemplatesPath, 'reset-password.jade')
 
-          compiledHTML = jade.compileFile(templatePath)({
-            logo: '',
-            name: user.name || user.email,
-            hashLink,
-            returnEmail
-          })
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          hashLink,
+          returnEmail
+        })
 
-          email = {
-            from: 'hello@getintelli.com',
-             to: user.email,
-             subject: 'Reset Password',
-             html: compiledHTML
-          }
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.email,
+          subject: 'Reset Password',
+          html: compiledHTML
+        }
 
-          return sendEmail(email)
+        return sendEmail(email)
 
-          break
-        case 'resetPwd': // inform that user's email is now confirmed
+        break
+      case 'resetPwd': // inform that user's email is now confirmed
 
-          hashLink = getLink('reset', user.resetToken)
+        hashLink = getLink('reset', user.resetToken)
 
-          templatePath = path.join(emailAccountTemplatesPath, 'password-was-reset.jade')
+        templatePath = path.join(emailAccountTemplatesPath, 'password-was-reset.jade')
 
-          compiledHTML = jade.compileFile(templatePath)({
-            logo: '',
-            name: user.name || user.email,
-            hashLink,
-            returnEmail
-          })
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          hashLink,
+          returnEmail
+        })
 
-          email = {
-            from: 'hello@getintelli.com',
-             to: user.email,
-             subject: 'Your password was reset',
-             html: compiledHTML
-          }
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.email,
+          subject: 'Your password was reset',
+          html: compiledHTML
+        }
 
-          return sendEmail(email)
+        return sendEmail(email)
 
-          break
-        case 'passwordChange':
+        break
+      case 'passwordChange':
 
-          templatePath = path.join(emailAccountTemplatesPath, 'password-change.jade')
+        templatePath = path.join(emailAccountTemplatesPath, 'password-change.jade')
 
-          compiledHTML = jade.compileFile(templatePath)({
-            logo: '',
-            name: user.name || user.email,
-            returnEmail
-          })
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          returnEmail
+        })
 
-          email = {
-            from: 'hello@getintelli.com',
-             to: user.email,
-             subject: 'Your password was changed',
-             html: compiledHTML
-          }
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.email,
+          subject: 'Your password was changed',
+          html: compiledHTML
+        }
 
-          return sendEmail(email)
+        return sendEmail(email)
 
-          break
-        case 'identityChange':
-          hashLink = getLink('verifyChanges', user.verifyToken)
+        break
+      case 'identityChange':
+        hashLink = getLink('verifyChanges', user.verifyToken)
 
-          templatePath = path.join(emailAccountTemplatesPath, 'identity-change.jade')
+        templatePath = path.join(emailAccountTemplatesPath, 'identity-change.jade')
 
-          compiledHTML = jade.compileFile(templatePath)({
-            logo: '',
-            name: user.name || user.email,
-            hashLink,
-            returnEmail,
-            changes: user.verifyChanges
-          })
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          hashLink,
+          returnEmail,
+          changes: user.verifyChanges
+        })
 
-          email = {
-            from: 'hello@getintelli.com',
-             to: user.email,
-             subject: 'Your account was changed. Please verify the changes',
-             html: compiledHTML
-          }
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.email,
+          subject: 'Your account was changed. Please verify the changes',
+          html: compiledHTML
+        }
 
-          return sendEmail(email)
-          break
-        default:
-          break
-      }
+        return sendEmail(email)
+        break
+      default:
+        break
     }
   }
 }
