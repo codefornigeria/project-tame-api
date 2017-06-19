@@ -111,7 +111,7 @@ module.exports = function (app) {
         break
       case 'resetPwd': // inform that user's email is now confirmed
 
-        hashLink = getLink('reset', user.resetToken)
+        hashLink = getLink('forgotpassword', user.resetToken)
 
         templatePath = path.join(emailAccountTemplatesPath, 'password-was-reset.jade')
 
