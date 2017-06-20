@@ -1,11 +1,46 @@
 
  const populate = require('feathers-populate-hook');
+ const _ = require('lodash')
+
+const processRating = options => {
+    return hook =>{
+      console.log('showing optios', hook.data)
+
+    var finalScore =0;
+    var scoreLength =0;
+    var finalData = Object.assign({} ,hook.data)
+    finalData.schemes = []
+    hook.data.schemes.map(function(scheme){
+      //  delete scheme.$$hashKey
+        finalData.schemes.push(scheme._id)
+
+    })
+
+  hook.data.ratingData.map(function(scheme){
+    //  delete scheme.$$hashKey
+
+        finalScore = finalScore+ scheme.score
+        scoreLength++
+      })
+  try{
+  finalData.score = finalScore/scoreLength
+}catch(e){
+  finalData.score=0.00
+}
+  finalData.entity = hook.data.organizationId,
+
+  hook.data = finalData
+ console.log('final data' , hook.data)
+    Promise.resolve(hook)
+  }
+}
+
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [processRating()],
     update: [],
     patch: [],
     remove: []
