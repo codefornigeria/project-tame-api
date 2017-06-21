@@ -11,6 +11,7 @@ module.exports = function (app) {
   score:{type : Number , default :0},
   ratingData:{},
   comments:{type:String},
+  creator: {type: mongooseClient.Schema.Types.ObjectId , ref:'user'},
   ratingType:{type:String , default:'self-assessor'},
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }

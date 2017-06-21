@@ -5,8 +5,10 @@
 const processRating = options => {
     return hook =>{
       console.log('showing optios', hook.data)
-
-    var finalScore =0;
+      if(hook.data.ratingType =='public-assessor'){
+           Promise.resolve(hook)
+      }else{
+var finalScore =0;
     var scoreLength =0;
     var finalData = Object.assign({} ,hook.data)
     finalData.schemes = []
@@ -32,6 +34,9 @@ const processRating = options => {
   hook.data = finalData
  console.log('final data' , hook.data)
     Promise.resolve(hook)
+      }
+   
+    
   }
 }
 
