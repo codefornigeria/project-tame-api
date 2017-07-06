@@ -11,6 +11,8 @@ const story = require('./story/story.service.js');
 
 const email = require('./email/email.service.js');
 
+const effect = require('./effect/effect.service.js');
+
 module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.configure(users);
@@ -24,4 +26,5 @@ module.exports = function () {
   app.configure(sector);
   app.configure(story);
   app.configure(email);
+  app.configure(effect);
 };

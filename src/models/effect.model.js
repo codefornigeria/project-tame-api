@@ -1,15 +1,14 @@
-// story-model.js - A mongoose model
+// effect-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
-  const story = new mongooseClient.Schema({
+  const effect = new mongooseClient.Schema({
     name: { type: String, required: true },
-    impactLevel: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });
 
-  return mongooseClient.model('story', story);
+  return mongooseClient.model('effect', effect);
 };

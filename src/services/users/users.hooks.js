@@ -9,7 +9,7 @@ const restrict = [
   restrictToOwner({
     idField: '_id',
     ownerField: '_id'
-  })
+  })   
 ];
 
 module.exports = {

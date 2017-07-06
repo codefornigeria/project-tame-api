@@ -5,7 +5,8 @@
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const group = new mongooseClient.Schema({
-     name: { type: String, required: true },
+    name: { type: String, required: true },
+    effects: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'effect' }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });

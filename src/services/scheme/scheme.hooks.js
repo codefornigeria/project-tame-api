@@ -1,5 +1,6 @@
 
 
+ const populate = require('feathers-populate-hook');
 module.exports = {
   before: {
     all: [],
@@ -13,8 +14,34 @@ module.exports = {
 
   after: {
     all: [],
-    find: [],
-    get: [],
+    find: [populate({
+      group:{
+        service:'group',
+        f_key: '_id',
+         query:  {  // defaults to {} but you can specify any other options here
+            $select: ['name','effects']
+          }
+      },
+        department:{
+        service:'department',
+        f_key: '_id',
+        query:  {  // defaults to {} but you can specify any other options here
+            $select: ['name']
+          }
+      },
+      antidotes:{
+        service:'antidote',
+        f_key: '_id',
+        
+      }
+    })],
+    get: [populate({
+      group:{
+        service:'group',
+        f_key: '_id',
+        
+      }
+    })],
     create: [],
     update: [],
     patch: [],
