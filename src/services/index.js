@@ -13,6 +13,8 @@ const email = require('./email/email.service.js');
 
 const effect = require('./effect/effect.service.js');
 
+const request = require('./request/request.service.js');
+
 module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.configure(users);
@@ -27,4 +29,5 @@ module.exports = function () {
   app.configure(story);
   app.configure(email);
   app.configure(effect);
+  app.configure(request);
 };

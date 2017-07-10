@@ -1,5 +1,7 @@
 
  const populate = require('feathers-populate-hook');
+
+ 
 module.exports = {
   before: {
     all: [],

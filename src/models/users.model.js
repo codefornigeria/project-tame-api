@@ -21,9 +21,11 @@ module.exports = function (app) {
     verifyChanges: {},
     resetToken: { type: String },
     resetShortToken: { type: String },
+    selfEntities: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'entity' }],
+    independentEntities: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'entity' }],
     resetExpires: { type: Date }, // or a long integer
     createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
+    updatedAt: { type: Date, default: Date.now },
   });
 
   return mongooseClient.model('users', users);

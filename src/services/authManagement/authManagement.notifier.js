@@ -63,6 +63,81 @@ module.exports = function (app) {
         return sendEmail(email)
 
         break
+      case 'sendRequestMail':
+      console.log('showing request user', user)
+        templatePath = path.join(emailAccountTemplatesPath, 'send-request.jade')
+        adminTemplatePath = path.join(emailAccountTemplatesPath, 'send-request-admin.jade')
+         acceptLink = `http://tame-app.herokuapp.com/#!/request?action=accept&requestId=${user._id}`
+         rejectLink = `http://tame-app.herokuapp.com/#!/request?action=reject&requestId=${user._id}`
+        compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          assessorType: user.assessorType,
+          returnEmail
+        })
+
+        compiledAdminHTML = jade.compileFile(adminTemplatePath)({
+          logo: '',
+          name: user.user[0].firstname || user.user[0].email,
+          acceptLink,
+          rejectLink,
+          returnEmail
+        })
+
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.user[0].email,
+          subject: 'Confirm Signup',
+          html: compiledHTML
+        }
+         adminEmail = {
+          from: 'hello@getintelli.com',
+          to: 'ini@mustardlabs.io',
+          subject: 'New Assessor Request',
+          html: compiledAdminHTML
+        }
+       sendEmail(email)
+       return sendEmail(adminEmail)
+
+        break
+      case 'sendRequestConfirmMail':
+        templatePath = path.join(emailAccountTemplatesPath, 'send-request.jade')
+        var rejectString = `Unfortunately your request to become  ${user.assessorType} assessor was rejected`;
+        var acceptString = `Your request to become ${user.assessorType}  was successful`
+        adminTemplatePath = path.join(emailAccountTemplatesPath, 'send-request-admin.jade')
+            compiledHTML = jade.compileFile(templatePath)({
+          logo: '',
+          name: user.name || user.email,
+          assessorType: user.assessorType,
+          approvalString: user.approved? acceptString : rejectString,
+          returnEmail
+        })
+
+        compiledAdminHTML = jade.compileFile(adminTemplatePath)({
+          logo: '',
+          name: user.user[0].firstname || user.user[0].email,
+          approval : user.approved? 'Accepted': 'Rejected',
+          assessorType: user.assessorType,
+          returnEmail
+        })
+
+        email = {
+          from: 'hello@getintelli.com',
+          to: user.user[0].email,
+          subject: 'Confirm Signup',
+          html: compiledHTML
+        }
+         adminEmail = {
+          from: 'hello@getintelli.com',
+          to: 'ini@mustardlabs.io',
+          subject: 'New Assessor Request',
+          html: compiledAdminHTML
+        }
+       sendEmail(email)
+       return sendEmail(adminEmail)
+
+        break
+
       case 'verifySignup': // inform that user's email is now confirmed
 
         hashLink = getLink('verify', user.verifyToken)
