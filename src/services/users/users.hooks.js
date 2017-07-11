@@ -32,16 +32,7 @@ module.exports = {
       )
     ],
     find: [],
-    get: [populate({
-      selfEntities:{
-        service:'entity',
-        f_key: '_id',
-      },
-      independentEntities:{
-        service:'entity',
-        f_key: '_id',
-      }
-    })],
+    get: [],
     create: [  verifyEmail(),verifyHooks.removeVerification(),],
     update: [],
     patch: [],
