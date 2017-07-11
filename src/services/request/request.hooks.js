@@ -20,10 +20,7 @@ const accountService = require('../authManagement/authManagement.notifier')
      break;
      case 'reject':
      var updatedData = Object.assign({},data,{approved:false})
-      // console.log('updated', updatedData)
-      // delete updatedData.updatedAt;
-      // delete updatedData.createdAt
-       return hook.app.service('request').patch(data._id,{approved:false})
+      return hook.app.service('request').patch(data._id,{approved:false})
       .then(result => {
         console.log('patch result', result)
         hook.result = result
@@ -37,8 +34,6 @@ const accountService = require('../authManagement/authManagement.notifier')
 const updateEntity = options => hook => {
     const query= hook.params.query
    const data =hook.result
-  console.log('update query',query)
-  console.log('update entity data', data)
    switch(query.action){
      case 'accept':
      if(data.approved && data.assessorType =='self'){
