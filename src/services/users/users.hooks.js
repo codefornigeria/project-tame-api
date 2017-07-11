@@ -34,7 +34,7 @@ module.exports = {
     find: [],
     get: [populate({
       selfEntities:{
-        service:'entiy',
+        service:'entity',
         f_key: '_id',
       },
       independentEntities:{
