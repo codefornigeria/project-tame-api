@@ -11,7 +11,7 @@ const restrict = [
     ownerField: '_id'
   })   
 ];
-
+ const populate = require('feathers-populate-hook');
 module.exports = {
   before: {
     all: [],
@@ -32,7 +32,16 @@ module.exports = {
       )
     ],
     find: [],
-    get: [],
+    get: [populate({
+      selfEntities:{
+        service:'entiy',
+        f_key: '_id',
+      },
+      independentEntities:{
+        service:'entity',
+        f_key: '_id',
+      }
+    })],
     create: [  verifyEmail(),verifyHooks.removeVerification(),],
     update: [],
     patch: [],
