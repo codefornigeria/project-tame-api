@@ -3,7 +3,7 @@ const requestEmail = require('../../hooks/send-request-email');
  const populate = require('feathers-populate-hook');
 const accountService = require('../authManagement/authManagement.notifier')
  const acceptRequest = options => hook => {
-   const query= hook.params
+   const query= hook.params.query
    console.log('query list', query)
    const data =hook.result
    switch(query.action){
