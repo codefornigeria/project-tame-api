@@ -10,6 +10,7 @@ module.exports = function (app) {
     assessorType: { type: String, required: true },
     user: { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' },
     comment: {type: String},
+    active: {type:Boolean: default:false}
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });
