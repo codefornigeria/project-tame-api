@@ -18,9 +18,7 @@ module.exports = {
       sectors:{
         service:'sector',
         f_key: '_id',
-         query:  {  // defaults to {} but you can specify any other options here
-            $select: ['name']
-          }
+        
       },
       group:{
         service:'group',
