@@ -60,6 +60,9 @@
         "permissions"
       ]
     },
+    "approvalEmails":[
+      "adeb6600@gmail.com"
+    ],
     "cookie": {
       "enabled": true,
       "name": "feathers-jwt",

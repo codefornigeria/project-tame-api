@@ -167,20 +167,21 @@ html(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color:
       .header(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;width: 100%;padding-top: 20px;padding-bottom: 20px;text-align: right;")
         table(style="display: inline-table;padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;")
           tr(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;")
-            a(href="http://getintelli.com", style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;")
+            a(href="http://tamecorruption.org", style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;")
               img(src="https://s3-us-west-2.amazonaws.com/mustardlabs/tame/logo.png", style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;width: 52px;")
       | 		
       hr.hr(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;border: solid 1px #f0f0f0;margin-bottom: 30px;border-bottom: 0;")
       | 		
       div(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;")
-        p.m-b-sm(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;margin-bottom: 15px;line-height: 27px;") Hi {{firstname}},
+        p.m-b-sm(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;margin-bottom: 15px;line-height: 27px;") Hi #{name},
         | 			
         p.m-b-sm(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;margin-bottom: 15px;line-height: 27px;") Welcome to TAME.
         | 			
         p.m-b-sm(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 100;color: #000000;font-size: 17px;margin-bottom: 15px;line-height: 27px;")
           | Thank you for signing up. Please verify your email so you can reset your password if need be.
         | 			
-        a.button(href='#{hashLink}') Verify Account
+        p
+          a.button(href='#{hashLink}') Verify Account
         | 			
         | 			
         p(style="padding: 0;margin: 0;font-family: Sans-Serif;font-weight: 400;color: #000000;font-size: 17px;line-height: 27px;") What's next?
