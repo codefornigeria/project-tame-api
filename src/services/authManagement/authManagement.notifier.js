@@ -54,7 +54,7 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.email,
           subject: 'Confirm Signup',
           html: compiledHTML
@@ -85,13 +85,13 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.user[0].email,
           subject: 'Confirm Signup',
           html: compiledHTML
         }
          adminEmail = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: notifierOptions.emails,
           subject: 'New Assessor Request',
           html: compiledAdminHTML
@@ -152,7 +152,7 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.email,
           subject: 'Thank you, your email has been verified',
           html: compiledHTML
@@ -175,7 +175,7 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.email,
           subject: 'Reset Password',
           html: compiledHTML
@@ -198,7 +198,7 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.email,
           subject: 'Your password was reset',
           html: compiledHTML
@@ -218,7 +218,7 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.email,
           subject: 'Your password was changed',
           html: compiledHTML
@@ -241,7 +241,7 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'hello@mail.tamecorruption.org',
           to: user.email,
           subject: 'Your account was changed. Please verify the changes',
           html: compiledHTML
