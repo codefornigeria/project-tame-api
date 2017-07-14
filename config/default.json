@@ -7,8 +7,8 @@
     "max": 50
   },
   "approvalEmails":[
-      "adeb6600@gmail.com",
-      "ini@mustardlabs.io"
+      "123@456.com",
+      "333@abc.io"
     ],
      "src": "../src/",
   "authentication": {
@@ -44,8 +44,8 @@
       ]
     },
     "facebook": {
-      "clientID": "643775069155130",
-      "clientSecret": "de938e6d2a3ab7f30d7bee1d9ff7bc3b",
+      "clientID": "facebook_id",
+      "clientSecret": "facebook_secret",
       "successRedirect": "/",
       "scope": [
         "public_profile",
@@ -72,5 +72,5 @@
       "secure": false
     }
   },
-  "mongodb": "mongodb://heroku_3vzxbh8p:kovd3bqap33fgi4pkt3sfkrtr6@ds161049.mlab.com:61049/heroku_3vzxbh8p"
+  "mongodb": "mongodb_url"
 }
