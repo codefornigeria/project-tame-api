@@ -62,7 +62,7 @@ const updateEntity = options => hook => {
 const notifyParties  = options => hook => {
  const request = hook.result
   if( hook.data  && request) { 
-    accountService(hook.app)('sendRequestConfirmMail', request)
+    accountService(hook.app)('sendRequestConfirmMail', request ,{emails: hook.app.get('approvalEmails')})
     return hook
   }
   return hook

@@ -122,14 +122,14 @@ module.exports = function (app) {
         })
 
         email = {
-          from: 'hello@getintelli.com',
+          from: 'request@mail.tamecorruption.org',
           to: user.user[0].email,
           subject: 'Confirm Signup',
           html: compiledHTML
         }
          adminEmail = {
-          from: 'hello@getintelli.com',
-          to: 'ini@mustardlabs.io',
+          from: 'request@mail.tamecorruption.org',
+          to: notifierOptions.emails,
           subject: 'New Assessor Request',
           html: compiledAdminHTML
         }

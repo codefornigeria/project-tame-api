@@ -17,7 +17,7 @@ module.exports = function () {
 
   // Initialize our service with any options it requires
   app.use('/email', Mailer(sparkPostTransport({
-    sparkPostApiKey:'61a105091ffcdf383f86ab90a393f0c4e1175c23'
+    sparkPostApiKey:app.get('sparkpostKey')
   })));
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('email');

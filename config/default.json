@@ -6,6 +6,7 @@
     "default": 10,
     "max": 50
   },
+  "sparkpostKey":"a5e9e54cafad2d398f75a731327afc623dd167f7",
   "approvalEmails":[
       "adeb6600@gmail.com",
       "ini@mustardlabs.io"
