@@ -5,9 +5,9 @@
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const antidote = new mongooseClient.Schema({
-    name: { type: String, required: true },
+    name: { type: String},
     description: { type: 'String' },
-    score: { type: Number, required: true },
+    score: { type: Number  },
     location: { type: mongooseClient.Schema.Types.ObjectId, ref: 'location' },
     createdAt: { type: Date, 'default': Date.now },
     updatedAt: { type: Date, 'default': Date.now }

@@ -61,7 +61,8 @@ module.exports = {
         query:  {  // defaults to {} but you can specify any other options here
             $select: ['name']
           }
-      },
+      }
+      ,
       antidotes:{
         service:'antidote',
         f_key: '_id',
