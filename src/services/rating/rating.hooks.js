@@ -21,7 +21,7 @@ var finalScore =0;
   hook.data.ratingData.map(function(scheme){
     //  delete scheme.$$hashKey
 
-        finalScore = finalScore+ scheme.score
+        finalScore =scheme.score? finalScore+ scheme.score : finalScore
         scoreLength++
       })
   try{
