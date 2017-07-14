@@ -8,6 +8,8 @@ module.exports = function () {
   const app = this;
   const Model = createModel(app);
   const paginate = app.get('paginate');
+  const approvals = app.get('approvalEmails');
+  console.log('approval emails two',approvals)
 
   const options = {
     name: 'request',

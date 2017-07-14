@@ -92,7 +92,7 @@ module.exports = function (app) {
         }
          adminEmail = {
           from: 'hello@getintelli.com',
-          to: 'ini@mustardlabs.io',
+          to: notifierOptions.emails,
           subject: 'New Assessor Request',
           html: compiledAdminHTML
         }
