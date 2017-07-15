@@ -25,7 +25,7 @@ hook.data.ratingData.map(function(scheme){
           scheme.schemerater.map(function(rater){
             console.log('the rater', rater)
             delete rater.$$hashKey
-             finalScore =rater.score? finalScore+ scheme.score : finalScore
+             finalScore =rater.score? finalScore+ rater.score : finalScore
                scoreLength++
           })
        
