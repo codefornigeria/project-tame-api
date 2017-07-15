@@ -8,16 +8,17 @@ const processRating = options => {
       if(hook.data.ratingType =='public-assessor'){
            Promise.resolve(hook)
       }else{
-var finalScore =0;
+    var finalScore =0;
     var scoreLength =0;
     var finalData = Object.assign({} ,hook.data)
+    console.log('final data 1', finalData)
     finalData.schemes = []
     hook.data.schemes.map(function(scheme){
       //  delete scheme.$$hashKey
         finalData.schemes.push(scheme._id)
 
     })
- 
+    console.log('final data 2', finalData)
 hook.data.ratingData.map(function(scheme){
     //  delete scheme.$$hashKey
           scheme.schemerater.map(function(rater){
