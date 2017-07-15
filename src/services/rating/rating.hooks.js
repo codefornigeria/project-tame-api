@@ -21,7 +21,9 @@ const processRating = options => {
     console.log('final data 2', finalData)
 hook.data.ratingData.map(function(scheme){
     //  delete scheme.$$hashKey
+          console.log('the scheme', scheme)
           scheme.schemerater.map(function(rater){
+            console.log('the rater', rater)
             delete rater.$$hashKey
              finalScore =rater.score? finalScore+ scheme.score : finalScore
                scoreLength++
