@@ -10,7 +10,7 @@ const processRating = options => {
       }else{
 var finalScore =0;
     var scoreLength =0;
-    var finalData = Object.assign({} ,hook.data,)
+    var finalData = Object.assign({} ,hook.data)
     finalData.schemes = []
     hook.data.schemes.map(function(scheme){
       //  delete scheme.$$hashKey
@@ -18,7 +18,7 @@ var finalScore =0;
 
     })
  
-var ratingData =  hook.data.schemes.map(function(scheme){
+hook.data.schemes.map(function(scheme){
     //  delete scheme.$$hashKey
           scheme.schemerater.map(function(rater){
             delete rater.$$hashKey
@@ -27,7 +27,8 @@ var ratingData =  hook.data.schemes.map(function(scheme){
         finalScore =scheme.score? finalScore+ scheme.score : finalScore
         scoreLength++
       })
-  finalData.ratingData = ratingData;
+
+      console.log('final score', finalScore)
   
   try{
   finalData.score = finalScore/scoreLength
