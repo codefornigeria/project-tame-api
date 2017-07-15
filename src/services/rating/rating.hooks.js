@@ -18,7 +18,7 @@ var finalScore =0;
 
     })
  
-hook.data.schemes.map(function(scheme){
+hook.data.ratingData.map(function(scheme){
     //  delete scheme.$$hashKey
           scheme.schemerater.map(function(rater){
             delete rater.$$hashKey
