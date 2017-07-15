@@ -17,10 +17,12 @@ var finalScore =0;
         finalData.schemes.push(scheme._id)
 
     })
-
-  hook.data.ratingData.map(function(scheme){
+ 
+  hook.data.schemes.map(function(scheme){
     //  delete scheme.$$hashKey
-
+          scheme.schemerater.map(function(rater){
+             finalScore =rater.score? finalScore+ scheme.score : finalScore
+          })
         finalScore =scheme.score? finalScore+ scheme.score : finalScore
         scoreLength++
       })
