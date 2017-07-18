@@ -9,6 +9,7 @@ module.exports = function (app) {
     schemes: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'scheme' }],
     sectors: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'sector' }],
     score: { type: Number, default: 0 },
+    group:{ type: mongooseClient.Schema.Types.ObjectId, ref: 'group' },
     ratingData: {},
     comments: { type: String },
     creator: { type: mongooseClient.Schema.Types.ObjectId, ref: 'user' },
