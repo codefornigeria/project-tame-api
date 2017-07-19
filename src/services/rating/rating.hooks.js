@@ -16,9 +16,13 @@ const processRating = options => {
       finalData.schemes = []
       hook.data.schemes.map(function (scheme) {
         finalData.schemes.push(scheme._id)
+        scheme.antidotes.map(function(antidote)  {
+          totalScore = totalScore +antidote.score
+        })
 
       })
       console.log('final data 2', finalData)
+
       hook.data.ratingData.map(function (scheme) {
         console.log('the scheme', scheme)
         scheme.schemerater.map(function (rater) {
@@ -30,11 +34,11 @@ const processRating = options => {
 
 
       })
-
+      console.log('the total score', totalScore)
       console.log('final score', finalScore)
 
       try {
-        finalData.score = finalScore / scoreLength
+        finalData.score = finalScore / totalScore
       } catch (e) {
         finalData.score = 0.00
       }
