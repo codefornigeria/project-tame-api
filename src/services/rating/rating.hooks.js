@@ -6,6 +6,8 @@ const processRating = options => {
   return hook => {
     console.log('showing optios', hook.data)
     if (hook.data.ratingType == 'public-assessor') {
+      hook.data.score= hook.data.score/5
+
       Promise.resolve(hook)
     } else {
       var finalScore = 0;
@@ -110,6 +112,11 @@ module.exports = {
       },
       schemes: {
         service: 'scheme',
+        f_key: '_id',
+
+      },
+       group: {
+        service: 'group',
         f_key: '_id',
 
       },
