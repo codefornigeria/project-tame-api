@@ -25,7 +25,8 @@
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/ --recursive",
+    "apidoc":"apidoc -i ./src/ -o ../tame-api-docs/"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -47,6 +48,7 @@
     "feathers-populate-hook": "^0.1.0",
     "feathers-rest": "^1.7.3",
     "feathers-socketio": "^2.0.0",
+    "feathers-swagger": "^0.5.0",
     "helmet": "^3.6.1",
     "jade": "^1.11.0",
     "mongoose": "^4.10.5",
@@ -56,8 +58,13 @@
     "serve-favicon": "^2.4.3",
     "winston": "^2.3.1"
   },
+  "apidoc": {
+    "title": "TAME App Documentation",
+    "url": "https://tame-api.herokuapp.com"
+  },
   "devDependencies": {
     "eslint": "^4.0.0",
+    "gulp-apidoc": "^0.2.6",
     "mocha": "^3.4.2",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"

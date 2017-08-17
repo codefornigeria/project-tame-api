@@ -16,7 +16,7 @@ const services = require('./services');
 const appHooks = require('./app.hooks');
 
 const authentication = require('./authentication');
-
+const swagger = require('feathers-swagger');
 const mongodb = require('./mongodb');
 
 const app = feathers();
@@ -38,11 +38,21 @@ app.configure(hooks());
 app.configure(mongodb);
 app.configure(rest());
 app.configure(socketio());
-
+app.configure(swagger({
+    
+    docsPath: '/docs',
+     uiIndex: true,
+    info: {
+      title: 'Tame project Technical Documentation',
+      description: 'Technical documentation for the TAME Server side project'
+    }
+  
+}))
 app.configure(authentication);
 
 // Set up our services (see `services/index.js`)
 app.configure(services);
+
 // Configure middleware (see `middleware/index.js`) - always has to be last
 app.configure(middleware);
 app.hooks(appHooks);

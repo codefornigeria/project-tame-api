@@ -16,7 +16,16 @@ module.exports = function () {
   };
 
   // Initialize our service with any options it requires
-  app.use('/antidote', createService(options));
+  const antidote = createService(options)
+  antidote.docs= {
+     definitions: {
+    antidote:Model, 
+    'antidote list': {
+         schema: { $ref: '#/definitions/antidote' }
+       }
+   }
+  }
+  app.use('/antidote', antidote);
 
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('antidote');
