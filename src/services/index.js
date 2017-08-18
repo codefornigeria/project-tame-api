@@ -33,6 +33,5 @@ module.exports = function() {
   app.configure(messages);
   app.configure(emails);
   app.configure(authManagement);
-  app.configure(authManagement);
   app.configure(rating);
 };

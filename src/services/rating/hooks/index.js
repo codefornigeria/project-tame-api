@@ -2,7 +2,7 @@
 
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
-const auth = require('feathers-authentication').hooks;
+//const auth = require('feathers-authentication').hooks;
 const _ = require('lodash')
 const processRating = options => {
     return hook =>{
@@ -74,13 +74,12 @@ const  transformIds  = options =>{
 
   }
 }
+
 exports.before = {
   all: [],
   find: [],
   get: [],
-  create: [auth.verifyToken(),
-  auth.populateUser(),
-  auth.restrictToAuthenticated(),processRating()],
+  create: [],
   update: [],
   patch: [],
   remove: []
@@ -90,8 +89,29 @@ exports.after = {
   all: [],
   find: [],
   get: [],
-  create: [processRatingEntity()],
+  create: [],
   update: [],
   patch: [],
   remove: []
-};
+}
+// exports.before = {
+//   all: [],
+//   find: [],
+//   get: [],
+//   create: [auth.verifyToken(),
+//   auth.populateUser(),
+//   auth.restrictToAuthenticated(),processRating()],
+//   update: [],
+//   patch: [],
+//   remove: []
+// };
+
+// exports.after = {
+//   all: [],
+//   find: [],
+//   get: [],
+//   create: [processRatingEntity()],
+//   update: [],
+//   patch: [],
+//   remove: []
+// };
