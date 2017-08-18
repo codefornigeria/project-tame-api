@@ -1,4 +1,33 @@
 {
-  "host": "TAME-app.feathersjs.com",
-  "port": "PORT"
+  "host": "tame-api-app.feathersjs.com",
+  "port": 80,
+  "mongodb": "mongodb://heroku_3vzxbh8p:kovd3bqap33fgi4pkt3sfkrtr6@ds161049.mlab.com:61049/heroku_3vzxbh8p",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "diA+ApOJzo4+QgsBVnpt7BiYBqqPX5RasiU9lvmmMfqjdezKJM03Xi8xreceeHTetGKMSji6ajbm09RAFvX6PQ=="
+    },
+    "local": {},
+    "facebook": {
+      "clientID": "643775069155130",
+      "clientSecret": "de938e6d2a3ab7f30d7bee1d9ff7bc3b",
+      "permissions": {
+        "scope": ["public_profile","email"]
+      }
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "permissions": {
+        "scope": ["profile"]
+      }
+    },
+    "linkedin": {
+      "clientID": "your linkedin client id",
+      "clientSecret": "your linkedin client secret",
+      "permissions": {
+        "scope": ["r_emailaddress","r_basicprofile"]
+      }
+    }
+  }
 }
